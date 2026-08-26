@@ -11,7 +11,7 @@ function App() {
       });
   }, []);
 
-  return <p>{message}</p>;
+  return <p className="font-bold">{message}</p>;
 }
 
 export default App;

@@ -6,11 +6,17 @@
   "devDependencies": {
     "@types/bun": "latest"
   },
+  "scripts": {
+    "dev": "bun run index.ts"
+  },
   "peerDependencies": {
     "typescript": "^5"
   },
   "workspaces": [
     "packages/client",
     "packages/server"
-  ]
+  ],
+  "dependencies": {
+    "concurrently": "^10.0.5"
+  }
 }
