@@ -1,24 +1,27 @@
 {
-   "name": "my-app",
-   "module": "index.ts",
-   "type": "module",
-   "private": true,
-   "devDependencies": {
-      "@types/bun": "latest",
-      "prettier": "^3.9.6"
-   },
-   "scripts": {
-      "dev": "bun run index.ts",
-      "format": "prettier --write ."
-   },
-   "peerDependencies": {
-      "typescript": "^5"
-   },
-   "workspaces": [
-      "packages/client",
-      "packages/server"
-   ],
-   "dependencies": {
-      "concurrently": "^10.0.5"
-   }
+  "name": "my-app",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.3.0",
+    "prettier": "^3.9.6"
+  },
+  "scripts": {
+    "dev": "bun run index.ts",
+    "format": "prettier --write .",
+    "prepare": "husky"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "workspaces": [
+    "packages/client",
+    "packages/server"
+  ],
+  "dependencies": {
+    "concurrently": "^10.0.5"
+  }
 }
