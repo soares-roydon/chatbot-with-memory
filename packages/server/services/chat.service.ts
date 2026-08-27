@@ -22,9 +22,9 @@ export const chatService = {
          input: prompt,
          previous_interaction_id:
             conversationRepository.getLastResponseId(conversationId),
-         generation_config: {
-            max_output_tokens: 100,
-         },
+         // generation_config: {
+         //    max_output_tokens: 200,
+         // },
       });
 
       conversationRepository.setLastResponseId(conversationId, aiResponse.id);
