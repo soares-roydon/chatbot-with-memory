@@ -3,6 +3,7 @@ import { useRef, useState } from 'react';
 import TypingIndicator from './TypingIndicator';
 import ChatMessages, { type Message } from './ChatMessages';
 import ChatInput, { type ChatFormData } from './ChatInput';
+import { BACKEND_URL } from '@/data/url';
 
 type ChatResponse = {
    message: string;
@@ -24,10 +25,13 @@ const ChatBot = () => {
       setError('');
 
       try {
-         const { data } = await axios.post<ChatResponse>('/api/chat', {
-            prompt,
-            conversationId: conversationId.current,
-         });
+         const { data } = await axios.post<ChatResponse>(
+            `${BACKEND_URL}/api/chat`,
+            {
+               prompt,
+               conversationId: conversationId.current,
+            }
+         );
 
          setMessages((oldMessages) => [
             ...oldMessages,
