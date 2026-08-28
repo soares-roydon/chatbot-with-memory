@@ -1,6 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
-// import router from './routes';
+import router from './routes';
 import cors from 'cors';
 dotenv.config();
 
@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
    return res.send('Server is healthy');
 });
 
-// app.use('/api', router);
+app.use('/api', router);
 
 export default app;
 
