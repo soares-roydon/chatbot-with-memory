@@ -1,5 +1,5 @@
 import { GoogleGenAI } from '@google/genai';
-import { conversationRepository } from '../repositories/conversation.repository';
+import { conversationRepository } from '../repositories/conversation.repository.js';
 
 // Implementation detail
 const ai = new GoogleGenAI({
