@@ -13,7 +13,7 @@ export default defineConfig({
    },
    server: {
       proxy: {
-         '/api': 'htpp://localhost:3000',
+         '/api': 'https://chatbot-with-memory-server.vercel.app/',
       },
    },
 });

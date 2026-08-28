@@ -1,5 +1,5 @@
 import remarkGfm from 'remark-gfm';
-import { Children, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import ReactMarkDown from 'react-markdown';
 
 export type Message = {
@@ -172,7 +172,7 @@ const ChatMessages = ({ messages }: Props) => {
                            src={src}
                            alt={alt ?? ''}
                            loading="lazy"
-                           className="my-6 max-h-[500px] w-auto max-w-full rounded-xl border border-zinc-200 object-contain shadow-sm dark:border-zinc-800"
+                           className="my-6 max-h-125 w-auto max-w-full rounded-xl border border-zinc-200 object-contain shadow-sm dark:border-zinc-800"
                         />
                      ),
 
@@ -182,7 +182,7 @@ const ChatMessages = ({ messages }: Props) => {
 
                      table: ({ children }) => (
                         <div className="my-6 w-full overflow-x-auto rounded-xl border border-zinc-200 dark:border-zinc-800">
-                           <table className="w-full min-w-[500px] border-collapse text-sm">
+                           <table className="w-full min-w-125 border-collapse text-sm">
                               {children}
                            </table>
                         </div>

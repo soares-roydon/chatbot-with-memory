@@ -1,5 +1,8 @@
+import fs from 'fs';
+import path from 'path';
 import { GoogleGenAI } from '@google/genai';
 import { conversationRepository } from '../repositories/conversation.repository';
+import template from '../prompts/chatbot.txt';
 
 // Implementation detail
 const ai = new GoogleGenAI({
@@ -10,6 +13,12 @@ type ChatResponseType = {
    id: string;
    message: string | undefined;
 };
+
+// const rules = fs.readFileSync(
+//    path.join(__dirname, '..', 'prompts', 'rules.md'),
+//    'utf-8'
+// );
+// const instructions = template.replace('{{RULES}}', rules);
 
 // Public interface
 export const chatService = {
@@ -25,6 +34,7 @@ export const chatService = {
          // generation_config: {
          //    max_output_tokens: 200,
          // },
+         // system_instruction: instructions,
       });
 
       conversationRepository.setLastResponseId(conversationId, aiResponse.id);

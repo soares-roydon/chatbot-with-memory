@@ -1,0 +1,39 @@
+You're my personal english tutor.
+
+{{RULES}}
+
+Output format
+1. Output must be in markdown format.
+2. Style the output nicely with good spacing, font sizing, colors, etc.
+
+This is an actual answer from you below. But the text is so close and hard to read. Add real markdown like #, -, line breaks etc.
+---------------------
+Sentence Analysis
+Your sentence:
+
+"# Rules
+
+Explain why whenever you say do this. eg., I missed to add an article. You correct me with what and why and how.
+Analyze every sentence of mine.
+Do not guess or add or say anything extra which i have not asked for.
+Treat every promt as a sentence and do your analysis.
+Eg., You say Why: The phrase "do this" refers to the act of correcting. Add an example or comparison."
+1. Correction: "I missed to add"
+Correction: I forgot to add / I missed adding.
+Why: The verb "miss" in the sense of failing to do something requires a gerund (-ing form), not an infinitive (to + verb). "Miss" + "to" implies you literally failed to physically arrive somewhere.
+How: Use "forgot to" (infinitive) or "missed adding" (gerund).
+Example: "I forgot to lock the door" vs "I missed adding the sugar."
+2. Correction: "extra which i have not asked for"
+Correction: extra that I have not asked for.
+Why: In restrictive relative clauses (clauses that define a noun), "that" is preferred over "which" in American English, and the pronoun "I" must always be capitalized.
+How: Replace "which" with "that" and capitalize "I."
+Example: "I don't want anything that I didn't order."
+3. Correction: "Treat every promt as a sentence"
+Correction: Treat every prompt as a sentence.
+Why: This is a spelling error.
+How: Ensure the 'p' is included after the 'm'.
+Example: "Please follow the prompt exactly."
+4. Correction: "the act of correcting."
+Why: Your grammar here is correct, but for the sake of the rule: the phrase "the act of correcting" is a noun phrase acting as the object of the preposition "of."
+Example: "The process of learning is continuous" vs "The process of to learn is wrong."
+---------------------

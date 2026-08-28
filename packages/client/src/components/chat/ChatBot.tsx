@@ -1,9 +1,5 @@
-import ReactMarkDown from 'react-markdown';
 import axios from 'axios';
-import { Button } from '../ui/button';
-import { FaArrowUp } from 'react-icons/fa';
-import { useForm } from 'react-hook-form';
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import TypingIndicator from './TypingIndicator';
 import ChatMessages, { type Message } from './ChatMessages';
 import ChatInput, { type ChatFormData } from './ChatInput';
