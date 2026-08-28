@@ -9,6 +9,7 @@
    },
    "devDependencies": {
       "@types/bun": "latest",
+      "@types/cors": "^2.8.19",
       "@types/express": "^5.0.6"
    },
    "peerDependencies": {
@@ -16,6 +17,7 @@
    },
    "dependencies": {
       "@google/genai": "^2.19.0",
+      "cors": "^2.8.6",
       "dotenv": "^17.4.2",
       "express": "^5.2.1",
       "zod": "^4.4.3"
