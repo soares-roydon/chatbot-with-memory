@@ -1,8 +1,5 @@
-import fs from 'fs';
-import path from 'path';
 import { GoogleGenAI } from '@google/genai';
 import { conversationRepository } from '../repositories/conversation.repository';
-import template from '../prompts/chatbot.txt';
 
 // Implementation detail
 const ai = new GoogleGenAI({
