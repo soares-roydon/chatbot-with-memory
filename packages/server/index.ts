@@ -7,11 +7,7 @@ dotenv.config();
 const port = process.env.PORT || 3000;
 
 const app = express();
-app.use(
-   cors({
-      origin: 'https://roychat.vercel.app',
-   })
-);
+app.use(cors());
 app.use(express.json());
 app.use('/api', router);
 
