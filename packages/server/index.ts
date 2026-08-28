@@ -11,6 +11,10 @@ app.use(cors());
 app.use(express.json());
 app.use('/api', router);
 
+app.get('/', (req, res) => {
+   return res.send('Server is healthy');
+});
+
 export default app;
 
 // app.listen(port, () => {
