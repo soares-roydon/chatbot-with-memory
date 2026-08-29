@@ -181,7 +181,7 @@ const ChatMessages = ({ messages }: Props) => {
                            href={href}
                            target="_blank"
                            rel="noopener noreferrer"
-                           className={`font-medium inline-flex items-center min-h-[44px] md:min-h-0 md:inline ${message.role === 'user' ? 'text-white hover:text-orange-400' : 'text-blue-600'} underline decoration-blue-300 underline-offset-2 transition-colors hover:text-blue-700 hover:decoration-blue-500 dark:text-blue-400 dark:decoration-blue-700 dark:hover:text-blue-300`}
+                           className={`font-medium inline-flex items-center min-h-11 md:min-h-0 md:inline ${message.role === 'user' ? 'text-white hover:text-orange-400' : 'text-blue-600'} underline decoration-blue-300 underline-offset-2 transition-colors hover:text-blue-700 hover:decoration-blue-500 dark:text-blue-400 dark:decoration-blue-700 dark:hover:text-blue-300`}
                         >
                            {children}
                         </a>
@@ -202,7 +202,7 @@ const ChatMessages = ({ messages }: Props) => {
 
                      table: ({ children }) => (
                         <div className="my-3 md:my-6 w-full overflow-x-auto rounded-lg md:rounded-xl border border-zinc-200 dark:border-zinc-800">
-                           <table className="w-full min-w-[300px] md:min-w-125 border-collapse text-xs md:text-sm">
+                           <table className="w-full min-w-75 md:min-w-125 border-collapse text-xs md:text-sm">
                               {children}
                            </table>
                         </div>
