@@ -5,6 +5,8 @@ import TypingIndicator from './TypingIndicator';
 import ChatMessages, { type Message } from './ChatMessages';
 import ChatInput, { type ChatFormData } from './ChatInput';
 import { BACKEND_URL } from '@/data/url';
+import ThemeToggle from './ThemeToggle';
+import { ScrollArea } from '@/components/ui/scroll-area';
 
 type ChatResponse = {
    message: string;
@@ -47,18 +49,31 @@ const ChatBot = () => {
    }
 
    return (
-      <div className="relative h-full">
-         {/* Scrollable messages — pb-24 reserves space so last message isn't hidden behind input */}
-         <div className="h-full overflow-y-auto pb-40 pt-2">
-            <div className="flex flex-col min-h-full gap-2">
-               <ChatMessages messages={messages} />
-               {isBotTyping && <TypingIndicator />}
-               {error ? <div className="text-red-500">{error}</div> : null}
-            </div>
+      <div className="flex flex-col h-full">
+         {/* Header — sits in normal flow, never overlaps messages */}
+         <div className="flex items-center justify-end py-2 px-3 shrink-0">
+            <ThemeToggle />
          </div>
-         {/* Floating input — overlays the bottom of the message area */}
-         <div className="absolute bottom-0 left-0 right-0 z-10 rounded-3xl bg-background mb-2 border-zinc-200 dark:border-zinc-800">
-            <ChatInput onSubmit={onSubmit} />
+
+         {/* Scrollable messages with styled scrollbar */}
+         <div className="relative flex-1 min-h-0">
+            <ScrollArea className="h-full">
+               <div className="pb-36 pt-1 px-3">
+                  <div className="flex flex-col min-h-full gap-2">
+                     <div className="flex-1" />
+                     <ChatMessages messages={messages} />
+                     {isBotTyping && <TypingIndicator />}
+                     {error ? (
+                        <div className="text-red-500">{error}</div>
+                     ) : null}
+                  </div>
+               </div>
+            </ScrollArea>
+
+            {/* Floating input — overlays the bottom of the scroll area */}
+            <div className="absolute bottom-0 left-0 right-0 z-10 mx-3 rounded-3xl bg-background mb-2 border-zinc-200 dark:border-zinc-800">
+               <ChatInput onSubmit={onSubmit} />
+            </div>
          </div>
       </div>
    );

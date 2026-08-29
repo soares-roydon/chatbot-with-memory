@@ -16,6 +16,10 @@ const ChatInput = ({ onSubmit }: Props) => {
    const focusInputRef = useRef<HTMLTextAreaElement | null>(null);
    const handleFormSubmit = handleSubmit((data) => {
       reset({ prompt: '' });
+      // Reset textarea height back to 1 row after submit
+      if (focusInputRef.current) {
+         focusInputRef.current.style.height = 'auto';
+      }
       onSubmit(data);
    });
 
@@ -38,7 +42,7 @@ const ChatInput = ({ onSubmit }: Props) => {
          onKeyDown={(e) => {
             handleKeyDown(e);
          }}
-         className="flex flex-col gap-2 items-end border-2 p-4 rounded-3xl"
+         className="flex items-end gap-2 border-2 dark:border-zinc-700 p-4 rounded-3xl"
       >
          <textarea
             {...promptFieldRest}
@@ -57,13 +61,20 @@ const ChatInput = ({ onSubmit }: Props) => {
                   });
                }, 300);
             }}
-            className="w-full border-0 focus:outline-0 resize-none"
+            onInput={(e) => {
+               // Auto-grow: reset height then set to scrollHeight
+               const el = e.currentTarget;
+               el.style.height = 'auto';
+               el.style.height = el.scrollHeight + 'px';
+            }}
+            className="flex-1 min-w-0 border-0 focus:outline-0 resize-none bg-transparent text-foreground placeholder:text-muted-foreground leading-6 pt-1 pb-2.5 overflow-y-auto max-h-24 styled-scrollbar"
+            rows={2}
             placeholder="Ask anything"
             maxLength={1000}
          />
          <Button
             disabled={!formState.isValid}
-            className={'rounded-full w-10 h-10'}
+            className={'rounded-full w-10 h-10 shrink-0'}
             type="submit"
          >
             <FaArrowUp />

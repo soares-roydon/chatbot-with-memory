@@ -128,3 +128,50 @@
       @apply font-sans;
    }
 }
+
+/* ─── Global scrollbar styling ─── */
+/* Applies to ALL scrollable elements: textarea, code blocks, tables, etc. */
+
+/* Webkit browsers (Chrome, Safari, Edge) */
+*::-webkit-scrollbar {
+   width: 6px;
+   height: 6px;
+}
+
+*::-webkit-scrollbar-button {
+   display: none !important;
+   width: 0 !important;
+   height: 0 !important;
+}
+
+*::-webkit-scrollbar-track {
+   background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+   background: oklch(0.7 0 0);
+   border-radius: 9999px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+   background: oklch(0.55 0 0);
+}
+
+/* Dark mode scrollbar */
+.dark *::-webkit-scrollbar-thumb {
+   background: oklch(0.4 0 0);
+}
+
+.dark *::-webkit-scrollbar-thumb:hover {
+   background: oklch(0.55 0 0);
+}
+
+/* Firefox */
+* {
+   scrollbar-width: thin;
+   scrollbar-color: oklch(0.7 0 0) transparent;
+}
+
+.dark * {
+   scrollbar-color: oklch(0.4 0 0) transparent;
+}

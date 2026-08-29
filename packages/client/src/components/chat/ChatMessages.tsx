@@ -35,10 +35,10 @@ const ChatMessages = ({ messages }: Props) => {
                onCopy={(e) => {
                   onCopyMessage(e);
                }}
-               className={`px-3 py-2 rounded-xl max-w-full md:max-w-md min-w-0 overflow-hidden wrap-break-word lg:max-w-4xl ${
+               className={`px-3 py-2 rounded-xl max-w-full md:max-w-md min-w-0 overflow-hidden wrap-break-word lg:max-w-4xl dark:border-zinc-500 ${
                   message.role === 'user'
-                     ? 'bg-black text-white rounded-br-none self-end'
-                     : 'bg-white-100 text-black rounded-bl-none self-start border'
+                     ? 'bg-black text-white rounded-br-none self-end border'
+                     : 'bg-white-100 text-black dark:bg-zinc-800 dark:text-zinc-100 rounded-bl-none self-start border '
                }`}
             >
                <ReactMarkDown
@@ -149,7 +149,7 @@ const ChatMessages = ({ messages }: Props) => {
                            className={`my-3 md:my-4 overflow-x-auto rounded-md md:rounded-lg p-3 md:p-4 text-xs md:text-sm leading-5 md:leading-6 ${
                               message.role === 'user'
                                  ? 'bg-indigo-600/40 text-indigo-50'
-                                 : 'bg-zinc-800 text-zinc-200 border border-zinc-700/50'
+                                 : 'text-zinc-200 border border-zinc-300/50 bg-zinc-100 dark:border-zinc-500/50 dark:bg-zinc-900'
                            }`}
                         >
                            {children}
@@ -165,7 +165,7 @@ const ChatMessages = ({ messages }: Props) => {
                            className={`rounded-md px-1 md:px-1.5 py-0.5 font-mono text-[12px] md:text-[13px] ${
                               message.role === 'user'
                                  ? 'bg-white/20 text-indigo-100'
-                                 : 'bg-white/80 text-zinc-800 border border-zinc-200/60 dark:bg-zinc-700 dark:text-zinc-200 dark:border-zinc-600'
+                                 : ' text-zinc-800 dark:text-zinc-200 dark:border-zinc-60'
                            }`}
                         >
                            {children}
