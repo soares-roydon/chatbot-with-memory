@@ -1,7 +1,7 @@
 import fs from 'fs';
 import { GoogleGenAI } from '@google/genai';
 import { conversationRepository } from '../repositories/conversation.repository.js';
-import instructions from '../prompts/chatbot.txt';
+import { join } from 'path';
 
 // Implementation detail
 const ai = new GoogleGenAI({
@@ -18,6 +18,11 @@ type ChatResponseType = {
 //    'utf-8'
 // );
 // const instructions = template.replace('{{RULES}}', rules);
+
+const instructions = fs.readFileSync(
+   join(__dirname, '..', 'prompts', 'chatbot.txt'),
+   'utf-8'
+);
 
 // Public interface
 export const chatService = {
