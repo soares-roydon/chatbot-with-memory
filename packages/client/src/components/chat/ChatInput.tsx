@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Button } from '../ui/button';
 import { FaArrowUp } from 'react-icons/fa';
 import { useForm } from 'react-hook-form';
@@ -13,7 +13,7 @@ type Props = {
 
 const ChatInput = ({ onSubmit }: Props) => {
    const { register, handleSubmit, reset, formState } = useForm<ChatFormData>();
-
+   const focusInputRef = useRef<HTMLTextAreaElement | null>(null);
    const handleFormSubmit = handleSubmit((data) => {
       reset({ prompt: '' });
       onSubmit(data);
@@ -40,6 +40,10 @@ const ChatInput = ({ onSubmit }: Props) => {
                validate: (data) => data.trim().length > 0,
             })}
             autoFocus
+            ref={focusInputRef}
+            onFocus={() => {
+               focusInputRef.current?.scrollIntoView();
+            }}
             className="w-full border-0 focus:outline-0 resize-none"
             placeholder="Ask anything"
             maxLength={1000}
