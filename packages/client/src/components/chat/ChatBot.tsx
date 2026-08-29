@@ -46,8 +46,8 @@ const ChatBot = () => {
    }
 
    return (
-      <div className="flex flex-col justify-between py-4 h-full">
-         <div className="flex flex-col gap-2 overflow-y-auto">
+      <div className="flex flex-col justify-between pt-2 pb-4 h-full">
+         <div className="flex flex-col gap-2 overflow-y-auto mt-auto">
             <ChatMessages messages={messages} />
             {isBotTyping && <TypingIndicator />}
 

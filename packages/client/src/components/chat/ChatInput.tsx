@@ -19,6 +19,12 @@ const ChatInput = ({ onSubmit }: Props) => {
       onSubmit(data);
    });
 
+   // Destructure the ref from register so we can merge it with our own
+   const { ref: formRef, ...promptFieldRest } = register('prompt', {
+      required: true,
+      validate: (data) => data.trim().length > 0,
+   });
+
    function handleKeyDown(e: React.KeyboardEvent<HTMLFormElement>) {
       if (e.key === 'Enter' && !e.shiftKey) {
          e.preventDefault();
@@ -35,14 +41,21 @@ const ChatInput = ({ onSubmit }: Props) => {
          className="flex flex-col gap-2 items-end border-2 p-4 rounded-3xl"
       >
          <textarea
-            {...register('prompt', {
-               required: true,
-               validate: (data) => data.trim().length > 0,
-            })}
+            {...promptFieldRest}
             autoFocus
-            ref={focusInputRef}
+            ref={(el) => {
+               formRef(el); // give react-hook-form its ref
+               focusInputRef.current = el; // keep our own ref for scrolling
+            }}
             onFocus={() => {
-               focusInputRef.current?.scrollIntoView();
+               // Wait for mobile keyboard animation to finish (~300ms)
+               // before scrolling, so the browser knows the final viewport size
+               setTimeout(() => {
+                  focusInputRef.current?.scrollIntoView({
+                     behavior: 'smooth',
+                     block: 'center',
+                  });
+               }, 300);
             }}
             className="w-full border-0 focus:outline-0 resize-none"
             placeholder="Ask anything"

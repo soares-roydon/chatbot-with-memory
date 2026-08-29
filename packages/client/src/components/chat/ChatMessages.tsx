@@ -27,7 +27,7 @@ const ChatMessages = ({ messages }: Props) => {
    }
 
    return (
-      <div className="flex flex-col gap-2 mb-4">
+      <div className="flex flex-col gap-2">
          {messages.map((message, index) => (
             <div
                key={index}
@@ -35,7 +35,7 @@ const ChatMessages = ({ messages }: Props) => {
                onCopy={(e) => {
                   onCopyMessage(e);
                }}
-               className={`px-3 py-2 rounded-xl max-w-md wrap-break-word lg:max-w-4xl ${
+               className={`px-3 py-2 rounded-xl max-w-[85%] md:max-w-md min-w-0 overflow-hidden wrap-break-word lg:max-w-4xl ${
                   message.role === 'user'
                      ? 'bg-indigo-400 text-white rounded-br-none self-end'
                      : 'bg-gray-100 text-black rounded-bl-none self-start'
@@ -78,7 +78,7 @@ const ChatMessages = ({ messages }: Props) => {
 
                      p: ({ children }) => (
                         <p
-                           className={`leading-7 ${message.role === 'user' ? 'white' : 'text-zinc-800 my-3'} dark:text-zinc-300`}
+                           className={`leading-7 first:mt-0 last:mb-0 ${message.role === 'user' ? 'white' : 'text-zinc-800 my-3'} dark:text-zinc-300`}
                         >
                            {children}
                         </p>
@@ -140,6 +140,16 @@ const ChatMessages = ({ messages }: Props) => {
 
                      hr: () => (
                         <hr className="my-7 border-0 border-t border-zinc-200 dark:border-zinc-800" />
+                     ),
+
+                     // ─────────────────────────────────────────
+                     // Code blocks (fenced ```)
+                     // ─────────────────────────────────────────
+
+                     pre: ({ children }) => (
+                        <pre className="my-4 overflow-x-auto rounded-lg bg-zinc-900 p-4 text-sm text-zinc-100 dark:bg-zinc-950">
+                           {children}
+                        </pre>
                      ),
 
                      // ─────────────────────────────────────────
