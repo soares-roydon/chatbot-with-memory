@@ -1,5 +1,7 @@
+import fs from 'fs';
 import { GoogleGenAI } from '@google/genai';
 import { conversationRepository } from '../repositories/conversation.repository.js';
+import instructions from '../prompts/chatbot.txt';
 
 // Implementation detail
 const ai = new GoogleGenAI({
@@ -31,7 +33,7 @@ export const chatService = {
          // generation_config: {
          //    max_output_tokens: 200,
          // },
-         // system_instruction: instructions,
+         system_instruction: instructions,
       });
 
       conversationRepository.setLastResponseId(conversationId, aiResponse.id);
