@@ -1,13 +1,8 @@
 import fs from 'fs';
-import { GoogleGenAI } from '@google/genai';
 import { conversationRepository } from '../repositories/conversation.repository.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
-
-// Implementation detail
-const ai = new GoogleGenAI({
-   apiKey: process.env.GEMINI_API_KEY,
-});
+import { llmClient } from '../llm/client.js';
 
 type ChatResponseType = {
    id: string;
@@ -34,9 +29,9 @@ export const chatService = {
       prompt: string,
       conversationId: string
    ): Promise<ChatResponseType> {
-      const aiResponse = await ai.interactions.create({
+      const aiResponse = await llmClient.generateText({
          model: 'gemini-3.1-flash-lite',
-         input: prompt,
+         prompt,
          previous_interaction_id:
             conversationRepository.getLastResponseId(conversationId),
          // generation_config: {
@@ -49,7 +44,7 @@ export const chatService = {
 
       return {
          id: aiResponse.id,
-         message: aiResponse.output_text,
+         message: aiResponse.text,
       };
    },
 };
