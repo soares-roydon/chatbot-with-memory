@@ -14,7 +14,7 @@ datasource db {
 
 model Product {
   id          Int      @id @default(autoincrement())
-  name        String   @db.VarChar(255)
+  name        String   @db.VarChar( 255)
   description String?  @db.Text
   price       Float
   reviews     Review[]

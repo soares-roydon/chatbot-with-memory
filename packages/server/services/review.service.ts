@@ -1,4 +1,3 @@
-import type { Review } from '../generated/prisma/client';
 import { reviewRepository } from '../repositories/review.repository';
 import { llmClient } from '../llm/client';
 import { fileURLToPath } from 'node:url';
@@ -6,11 +5,14 @@ import { read_file } from '../utils/file_ops';
 import path from 'node:path';
 
 export const reviewService = {
-   getReviews(productId: number): Promise<Review[]> {
-      return reviewRepository.getReviews(productId);
-   },
-
    async summarizeReviews(productId: number): Promise<string | undefined> {
+      const existingSummary =
+         await reviewRepository.getReviewSummary(productId);
+
+      if (existingSummary) {
+         return existingSummary;
+      }
+
       const reviews = await reviewRepository.getReviews(productId, 10);
 
       const joinedReviews = reviews.map((r) => r.content).join('\n\n');
@@ -26,11 +28,13 @@ export const reviewService = {
 
       const prompt = template.replace('{{reviews}}', joinedReviews);
 
-      const response = await llmClient.generateText({
+      const { text: summary } = await llmClient.generateText({
          model: 'gemini-3.1-flash-lite',
          prompt,
       });
 
-      return response.text;
+      await reviewRepository.storeReviewSummary(productId, summary);
+
+      return summary;
    },
 };

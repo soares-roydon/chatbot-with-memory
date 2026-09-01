@@ -24,6 +24,7 @@
       "@prisma/adapter-pg": "^7.10.0",
       "@prisma/client": "7.10.0",
       "cors": "^2.8.6",
+      "dayjs": "^1.11.23",
       "dotenv": "^17.4.2",
       "express": "^5.2.1",
       "pg": "^8.23.0",
