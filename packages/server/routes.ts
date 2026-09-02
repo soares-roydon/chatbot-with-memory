@@ -10,7 +10,7 @@ router.post('/chat', (req, res) => {
 
 router.get('/products/:id/reviews', reviewController.getReviews);
 
-router.get(
+router.post(
    '/products/:id/reviews/summarize',
    reviewController.summarizeReviews
 );
