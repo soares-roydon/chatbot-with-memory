@@ -1,4 +1,4 @@
-import { prisma } from './review.repository';
+import { prisma } from './review.repository.js';
 
 export const productRepository = {
    getProduct(productId: number) {

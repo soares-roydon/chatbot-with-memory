@@ -1,7 +1,7 @@
 import type { Request, Response } from 'express';
-import { reviewService } from '../services/review.service';
-import { productRepository } from '../repositories/product.repository';
-import { reviewRepository } from '../repositories/review.repository';
+import { reviewService } from '../services/review.service.js';
+import { productRepository } from '../repositories/product.repository.js';
+import { reviewRepository } from '../repositories/review.repository.js';
 
 export const reviewController = {
    async getReviews(req: Request, res: Response) {

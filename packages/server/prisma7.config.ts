@@ -2,7 +2,6 @@
 // npm install --save-dev prisma dotenv
 import 'dotenv/config';
 import { defineConfig } from 'prisma/config';
-import { id } from 'zod/locales';
 
 export default defineConfig({
    schema: 'prisma/schema.prisma',

@@ -1,7 +1,7 @@
-import { reviewRepository } from '../repositories/review.repository';
-import { llmClient } from '../llm/client';
+import { reviewRepository } from '../repositories/review.repository.js';
+import { llmClient } from '../llm/client.js';
 import { fileURLToPath } from 'node:url';
-import { read_file } from '../utils/file_ops';
+import { read_file } from '../utils/file_ops.js';
 import path from 'node:path';
 
 export const reviewService = {
