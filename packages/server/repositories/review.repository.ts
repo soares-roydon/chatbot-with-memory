@@ -1,5 +1,5 @@
 import { PrismaPg } from '@prisma/adapter-pg';
-import { PrismaClient, type Review } from '../generated/prisma/client';
+import { PrismaClient, type Review } from '../generated/prisma/client.js';
 import dayjs from 'dayjs';
 
 export const prisma = new PrismaClient({
