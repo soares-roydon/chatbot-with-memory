@@ -1,13 +1,16 @@
+import { BrowserRouter, Route, Routes } from 'react-router';
 import ChatBot from './components/chat/ChatBot';
-// import ReviewList from './components/reviews/ReviewList';
+// import ReviewList from "./components/reviews/ReviewList";
 
 function App() {
    return (
       <>
-         <div className="h-dvh mt-2 ml-2">
-            <ChatBot />
-            {/* <ReviewList productId={1} /> */}
-         </div>
+         <BrowserRouter>
+            <Routes>
+               <Route path="/" element={<ChatBot />} />
+               {/* <Route path="/summarize" element={<ReviewList productId={1}/>}/> */}
+            </Routes>
+         </BrowserRouter>
       </>
    );
 }
